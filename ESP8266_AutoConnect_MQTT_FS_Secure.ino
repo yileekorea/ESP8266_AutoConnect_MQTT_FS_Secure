@@ -4,7 +4,7 @@
 
 //needed for library
 #include <DNSServer.h>
-#include <ESP8266WebServer.h>
+//#include <ESP8266WebServer.h>
 #include <WiFiManager.h>          //https://github.com/tzapu/WiFiManager
 
 #include <ArduinoJson.h>          //https://github.com/bblanchon/ArduinoJson
@@ -66,7 +66,7 @@ unsigned long tempTry = 0;
 WiFiClientSecure wifiClient;
 //WiFiClient wifiClient;
 PubSubClient * mqttClient;
-WiFiServer server(80);
+//WiFiServer server(80);
 
 //callback notifying us of the need to save config
 void saveConfigCallback () {
@@ -346,7 +346,7 @@ void setup() {
   Serial.println(clientName);
   delay(3000); 
 
-  server.begin();
+  //server.begin();
 
   // check the fingerprint of io.adafruit.com's SSL cert
   verifyFingerprint();
@@ -412,7 +412,7 @@ void loop() {
    
     tempTry = millis();
   }
-
+/*
   // Check if a client has connected
   WiFiClient client = server.available();
   if (!client) {
@@ -492,7 +492,7 @@ void loop() {
   client.print(s);
   delay(1);
   Serial.println("Client disonnected");
-
+*/
   // The client will actually be disconnected 
   // when the function returns and 'client' object is detroyed
 }
